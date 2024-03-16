@@ -1,4 +1,8 @@
-# Intro-to-Tool-Development
+[Markdown Quick Ref](https://wordpress.com/support/markdown-quick-reference/)
+
+## Intro-to-Tool-Development
+
+# Integrated Development Environment
 
 First, we need to choose a platform to write the code on.  It is as simple as writing in a text editor and using the interpreter to run the file, however specific language syntax and errors will not be visible.  Integrated Development Environments (IDE) are used to help detect errors and fix syntax to make it easier for the programmers.  There are a lot of IDEs out there, so decide on one that is comfortable for you.
 
