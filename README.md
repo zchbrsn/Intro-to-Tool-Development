@@ -4,5 +4,12 @@ First, we need to choose a platform to write the code on.  It is as simple as wr
 
 For the purposes of this course, I'll be using [Visual Studio Code](https://code.visualstudio.com/).  It is free and can be customized to fit various needs and programming languages.
 
+# 
 
+
+# Command Line Arguments
+
+There are a couple ways we can define command line arguments
+1. Importing the sys library and accessing argv
+2. Using a more full-bodied library such as argparse
 
