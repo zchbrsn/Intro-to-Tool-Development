@@ -16,3 +16,9 @@ There are a couple ways we can define command line arguments
 1. Importing the sys library and accessing argv
 2. Using a more full-bodied library such as argparse
 
+By using sys, we will access an argument by its index:
+`import sys
+
+print(f'First argument: {sys.argv[1]}')
+`
+Notice that we are actually calling the second item in the array, the first `sys.argv[0]` will contain the name of the program.
