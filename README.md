@@ -23,3 +23,9 @@ import sys
 print(f'First argument: {sys.argv[1]}')
 ```
 Notice that we are actually calling the second item in the array, the first `sys.argv[0]` will contain the name of the program.
+
+In this way, we can run the program like so and access variable arguments that fit our needs.
+```
+> python3 my_program.py Hello
+First argument: Hello
+```
