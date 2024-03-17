@@ -43,18 +43,18 @@ We will modify the previous port scanner and specify a port range.
 import socket
 
 ip = "127.0.0.1"
-ports = [21, 22, 23, 25, 80, 443]
+ports = [1, 2, 3, 4, 5]
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-try:
-    for port in ports:
+for port in ports:
+    try:
         conn = sock.connect((ip, port))
         print(f'[+] {port} is open')
         sock.close()
 
-except socket.error:
-    print(f'[-] {port} is closed')
-    sock.close()
+    except socket.error:
+        print(f'[-] {port} is closed')
+        sock.close()
 ```
 
 In this way, we specify a series of ports that we would like to scan, but this list could get very long and overwhelming.  Alternatively, we could pick a range bettwen two numbers and Python will loop through each number in between.
@@ -65,15 +65,15 @@ import socket
 ip = "127.0.0.1"
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-try:
-    for port in range(65536):
+for port in range(65536):
+    try:
         conn = sock.connect((ip, port))
         print(f'[+] {port} is open')
         sock.close()
 
-except socket.error:
-    print(f'[-] {port} is closed')
-    sock.close()
+    except socket.error:
+        print(f'[-] {port} is closed')
+        sock.close()
 ```
 
 The range starts at 0 and will continue to loop until (and excluding) 65536.
