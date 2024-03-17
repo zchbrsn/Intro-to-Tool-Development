@@ -57,7 +57,26 @@ except socket.error:
     sock.close()
 ```
 
-In this way, we specify a series of ports that we would like to scan, but this list could get very long and overwhelming.  Alternatively, we could 
+In this way, we specify a series of ports that we would like to scan, but this list could get very long and overwhelming.  Alternatively, we could pick a range bettwen two numbers and Python will loop through each number in between.
+
+```
+import socket
+
+ip = "127.0.0.1"
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+try:
+    for port in range(65536):
+        conn = sock.connect((ip, port))
+        print(f'[+] {port} is open')
+        sock.close()
+
+except socket.error:
+    print(f'[-] {port} is closed')
+    sock.close()
+```
+
+The range starts at 0 and will continue to loop until (and excluding) 65536.
 
 ## Command Line Arguments
 
