@@ -86,6 +86,8 @@ There are a couple ways we can define command line arguments
 1. Importing the sys library and accessing argv
 2. Using a more full-bodied library such as argparse
 
+### sys.argv
+
 By using sys, we will access an argument by its index:
 ```
 import sys
@@ -126,7 +128,51 @@ except socket.error:
 
 We want to include a usage statement and error handling for if the user does not specify the correct amount of arguments.  More error handling could be included to ensure the user enters specifically an IP address and a valid port, but this is outside the scope of this introductory course and since we will be using these tools personally.
 
-// argparse
+### argparse
+
+Argparse provides a LOT more functionality to the command line ability, but can be a bit daunting at first.  Argparse requires an "ArgumentParser" object and methods are specified for each argument by using the add_argument function.  Once all arguments have been added, call "parse_args", then the arguments can be accessed by the variable name and the argument name.
+
+```
+import socket
+import argparse
+
+parser = argparse.ArgumentParser(prog='Port Scanner',
+                                 description='A simple TCP port Scanner',)
+
+parser.add_argument('ip', default='127.0.0.1', help='The target IP address')
+parser.add_argument('-p', '--port', help='A single port')
+parser.add_argument('-b', '--begin', help='The beginning of the port range')
+parser.add_argument('-e', '--end', help='The end of the port range')
+
+args = parser.parse_args()
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+ip = args.ip
+
+if (args.begin and args.end):
+    ports = range(int(args.begin), int(args.end))
+    for port in ports:
+        try:
+            conn = sock.connect((ip, port))
+            print(f'[+] {port} is open')
+            sock.close()
+
+        except socket.error:
+            print(f'[-] {port} is closed')
+            sock.close()
+else:
+    port = int(args.port)
+    try:
+        conn = sock.connect((ip, port))
+        print(f'[+] {port} is open')
+        sock.close()
+
+    except socket.error:
+        print(f'[-] {port} is closed')
+        sock.close()
+```
+
+Additionally, arguments can be optional or positional.  Positional arguments are required to be called in the order that they are specified in the program, whereas optional require certain flags to be set in order to access them.  In this program, the IP argument is positional and required.  The port, begin, and end are all optional, but the program will error out if they are not specified.
 
 ## Threading, multiprocessing, and asyncio
 
