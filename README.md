@@ -177,3 +177,14 @@ Additionally, arguments can be optional or positional.  Positional arguments are
 ## Threading, multiprocessing, and asyncio
 
 This is a much more advanced topic, but the scanner can become even faster if tap into these synchronous programming elements and run each port scan concurrent to the others.
+
+# Brainstorming and Collaboration
+
+At this point, let's consider some ways we can achieve solutions personally or in our work environment using python and tools we have at our disposal.
+
+* Web scraping
+* Password cracking
+* Keylogger
+* Server/Client
+* Recreating OS binaries
+* Reading/writing files
