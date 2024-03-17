@@ -100,6 +100,32 @@ In this way, we can run the program like so and access variable arguments that f
 First argument: Hello
 ```
 
+We can edit the port scanner to allow us to specify an IP and port from the command line.
+
+```
+import socket
+import sys
+
+if (len(sys.argv) != 3):
+    print(f'Usage: python3 {sys.argv[0]} target port')
+    sys.exit()
+
+ip = sys.argv[1]
+port = int(sys.argv[2])
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+try:
+    conn = sock.connect((ip, port))
+    print(f'[+] {port} is open')
+    sock.close()
+
+except socket.error:
+    print(f'[-] {port} is closed')
+    sock.close()
+```
+
+We want to include a usage statement and error handling for if the user does not specify the correct amount of arguments.  More error handling could be included to ensure the user enters specifically an IP address and a valid port, but this is outside the scope of this introductory course and since we will be using these tools personally.
+
 // argparse
 
 ## Threading, multiprocessing, and asyncio
