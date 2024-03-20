@@ -194,4 +194,4 @@ At this point, let's consider some ways we can achieve solutions personally or i
 [Replit (Web IDE)](https://replit.com/) \
 [Leetcode (Practice)](https://leetcode.com/) \
 [Codewars (Practice)](https://www.codewars.com/) \
-[Python3 Official Documentation](https://docs.python.org/3/) \
+[Python3 Official Documentation](https://docs.python.org/3/)
