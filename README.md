@@ -3,9 +3,9 @@
 # Introductions
 
 1. Name
-2. Programming or language experience
-3. What would you like to learn from this course or a project goal for the future
-4. Optional: Work Role
+2. Optional: Work Role
+3. Programming or language experience
+4. What would you like to learn from this course or a project goal for the future
 
 # Intro-to-Tool-Development
 
